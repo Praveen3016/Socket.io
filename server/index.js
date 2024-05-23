@@ -13,7 +13,7 @@ const server = http.createServer(app); // Create HTTP server instance
 
 const io = new Server(server ,{
     cors :{
-        origin:"socket-io-chatcam-message.vercel.app",
+        origin:"socket-io-chat24/7.vercel.app",
         methods : ["GET" ,"POST"] ,
         credentials : true
     }

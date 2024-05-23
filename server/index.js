@@ -13,7 +13,7 @@ const server = http.createServer(app); // Create HTTP server instance
 
 const io = new Server(server ,{
     cors :{
-        origin:"http://localhost:5173",
+        origin:"socket-io-chat.vercel.app",
         methods : ["GET" ,"POST"] ,
         credentials : true
     }
@@ -38,11 +38,11 @@ app.get("/", (req, res) => {
   return res.send("hello im working");
 });
 
-app.get("/login", (req, res) => {
-  const token = jwt.sign({ Id: 'bar' }, privateKey);
+// app.get("/login", (req, res) => {
+//   const token = jwt.sign({ Id: 'bar' }, privateKey);
 
-  return res.cookie("token" , token , { httpOnly: true , secure : true ,sameSite :true }).json({message : "login success"})
-});
+//   return res.cookie("token" , token , { httpOnly: true , secure : true ,sameSite :true }).json({message : "login success"})
+// });
 
 io.on("connection", (socket) => { 
   console.log("socket connected");
